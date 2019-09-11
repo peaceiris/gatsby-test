@@ -11,11 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    # - name: restore cache
-    #   uses: actions/download-artifact@master
-    #   with:
-    #     name: node-modules
-    #     path: node_modules
+    - name: restore cache
+      uses: actions/download-artifact@master
+      with:
+        name: node-modules
+        path: node_modules
 
     - name: build
       uses: actions/setup-node@v1
