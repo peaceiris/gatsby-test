@@ -11,8 +11,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: restore cache
+      uses: actions/download-artifact@master
+      with:
+        name: node-modules
+        path: node_modules
+
     - name: build
       uses: actions/setup-node@v1
+      if: always()
       with:
         node-version: '10.16'
     - run: |
@@ -25,3 +32,9 @@ jobs:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
+
+    - name: save cache
+      uses: actions/upload-artifact@master
+      with:
+        name: node-modules
+        path: node_modules
