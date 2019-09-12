@@ -17,14 +17,20 @@ jobs:
     #     name: node-modules
     #     path: node_modules
 
-    - name: build
+    - name: setup node
       uses: actions/setup-node@v1
       # if: always()
       with:
         node-version: '10.16'
-    - run: |
-        npm install
-        npm run build
+
+    - name: install
+      run: npm install
+
+    - name: format
+      run: npm run format
+
+    - name: build
+      run: npm run build
 
     - name: deploy
       uses: peaceiris/actions-gh-pages@v2.2.0
