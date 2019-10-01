@@ -11,12 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    # - name: restore cache
-    #   uses: actions/download-artifact@master
-    #   with:
-    #     name: node-modules
-    #     path: node_modules
-
     - name: setup node
       uses: actions/setup-node@v1
       with:
@@ -38,9 +32,3 @@ jobs:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
-
-    # - name: save cache
-    #   uses: actions/upload-artifact@master
-    #   with:
-    #     name: node-modules
-    #     path: node_modules
