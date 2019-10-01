@@ -33,7 +33,7 @@ jobs:
 #        PUBLISH_BRANCH: gh-pages
 #        PUBLISH_DIR: ./public
 
-    - name: Deploy
+    - name: Deploy (script)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
