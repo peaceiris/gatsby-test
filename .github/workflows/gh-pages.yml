@@ -36,7 +36,7 @@ jobs:
     - name: Deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: master
+        PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
       run: |
         wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2.4.0/entrypoint.sh
