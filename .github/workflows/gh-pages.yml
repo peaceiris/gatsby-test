@@ -25,19 +25,20 @@ jobs:
     - name: build
       run: npm run build
 
-    - name: deploy
-      uses: peaceiris/actions-gh-pages@master
+#    - name: deploy
+#      uses: peaceiris/actions-gh-pages@v2.5.0-rc1
+#      env:
+#        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+#        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        PUBLISH_BRANCH: gh-pages
+#        PUBLISH_DIR: ./public
+
+    - name: Deploy (script)
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
-
-#    - name: Deploy (script)
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        PUBLISH_BRANCH: gh-pages
-#        PUBLISH_DIR: ./public
-#      run: |
-#        wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2.4.0/entrypoint.sh
-#        bash ./entrypoint.sh
+      run: |
+        wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2.5.0-rc1/entrypoint.sh
+        bash ./entrypoint.sh
