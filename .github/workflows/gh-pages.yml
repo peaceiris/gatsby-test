@@ -17,10 +17,12 @@ jobs:
         node-version: '10.x'
 
     - name: Cache node_modules
-      uses: actions/cache@preview
+      uses: actions/cache@v0.0.1
       with:
         path: node_modules
-        key: ${{ runner.os }}-node
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
 
     - name: install
       run: npm install
