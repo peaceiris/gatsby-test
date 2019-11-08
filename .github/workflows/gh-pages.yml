@@ -17,9 +17,9 @@ jobs:
         node-version: '10.x'
 
     - name: Cache node_modules
-      uses: actions/cache@v0.0.1
+      uses: actions/cache@v1
       with:
-        path: node_modules
+        path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
@@ -43,8 +43,8 @@ jobs:
 
     - name: Deploy (script)
       env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
         SCRIPT_MODE: true
