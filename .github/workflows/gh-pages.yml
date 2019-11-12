@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '10.x'
 
-    - name: Cache node_modules
+    - name: Cache dependencies
       uses: actions/cache@v1
       with:
         path: ~/.npm
@@ -24,14 +24,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - name: install
-      run: npm install
+    - run: npm install
 
-    - name: format
-      run: npm run format
+    - run: npm run format
 
-    - name: build
-      run: npm run build
+    - run: npm run build
 
 #    - name: deploy
 #      uses: peaceiris/actions-gh-pages@v2.5.0
