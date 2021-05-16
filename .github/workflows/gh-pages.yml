@@ -3,7 +3,8 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
+  pull_request:
 
 jobs:
   deploy:
@@ -30,6 +31,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           # github_token: ${{ secrets.GITHUB_TOKEN }}
