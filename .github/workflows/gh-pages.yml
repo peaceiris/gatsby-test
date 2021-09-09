@@ -31,8 +31,8 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@c4b29bc504fcc9e55f0947596a2a29f0a5e8d72e
-        if: github.ref == 'refs/heads/main'
+        #if: github.ref == 'refs/heads/main'
         with:
-          # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./public
           cname: 'test-gatsby.peaceiris.com'
